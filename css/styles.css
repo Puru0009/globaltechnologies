@@ -416,3 +416,82 @@ body { padding-bottom: 76px; }
   .mobile-bar { display: none; }
   body { padding-bottom: 0; }
 }
+
+/* ============ MOBILE MENU & GOOGLE REVIEW ============ */
+
+/* Hamburger Icon Styles */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    gap: 4px;
+    padding: 10px;
+    margin-right: -10px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Hamburger turns into an X when open */
+.menu-toggle.is-open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.is-open .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Dropdown Menu on Mobile */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--navy-900);
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--navy-700);
+    box-shadow: var(--shadow-md);
+    gap: 1.5rem;
+    z-index: 99;
+}
+.nav-links.active a { font-size: 1.05rem; }
+
+/* Ensure the hamburger hides on desktop */
+@media (min-width: 820px) {
+    .menu-toggle {
+        display: none;
+    }
+    .nav-links.active {
+        position: static;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+/* Google Review Section Styles */
+.google-review-section {
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+    background-color: var(--navy-100);
+    margin: 0;
+}
+.google-review-section h2 {
+    color: var(--navy-900);
+}
+.google-review-section p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+.review-btn {
+    margin-top: 0.5rem;
+}
